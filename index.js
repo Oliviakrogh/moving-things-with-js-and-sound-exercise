@@ -9,6 +9,7 @@ function moveDodgerLeft() {
   if (left > 0) {
     dodger.style.left = `${left - 5}px`;
   }
+  playMovementSound();
 }
 function moveDodgerRight() {
   const leftNumbers = dodger.style.left.replace("px", "");
@@ -18,6 +19,7 @@ function moveDodgerRight() {
     // 400px bred bane minus 40px bred dodger fx
     dodger.style.left = `${left + 5}px`;
   }
+  playMovementSound();
 }
 
 function moveDodgerUp() {
@@ -27,6 +29,7 @@ function moveDodgerUp() {
   if (bottom < 360) {
     dodger.style.bottom = `${bottom + 5}px`;
   }
+  playMovementSound();
 }
 
 function moveDodgerDown() {
@@ -36,6 +39,7 @@ function moveDodgerDown() {
   if (bottom < 360) {
     dodger.style.bottom = `${bottom - 5}px`;
   }
+  playMovementSound();
 }
 
 document.addEventListener("keydown", function (e) {
@@ -52,3 +56,15 @@ document.addEventListener("keydown", function (e) {
     moveDodgerDown();
   }
 });
+
+function playMovementSound() {
+  const movementSound = document.getElementById("movementSound");
+  movementSound.currentTime = 0;
+  movementSound.play();
+}
+
+function playGameOver() {
+  const gameOver = document.getElementById("gameOver");
+  gameOver.currentTime = 0;
+  gameOver.play();
+}
